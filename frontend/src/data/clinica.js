@@ -1,0 +1,30 @@
+export const clinica = {
+  nombre: "Huella Vet",
+  slogan: "Atención veterinaria cercana, con cita previa y sin esperas innecesarias.",
+  telefono: "+00 0 0000 0000",
+  email: "contacto@ejemplo.com",
+  direccion: "Calle Ejemplo 123, Ciudad",
+  horarios: [
+    { dias: "Lunes a viernes", horas: "09:00 – 19:00" },
+    { dias: "Sábado", horas: "10:00 – 14:00" },
+    { dias: "Domingo", horas: "Solo urgencias" },
+  ],
+  estadisticas: [
+    { valor: "10+", etiqueta: "años de experiencia" },
+    { valor: "5.000", etiqueta: "mascotas atendidas" },
+    { valor: "24/7", etiqueta: "urgencias" },
+  ],
+  servicios: [
+    { titulo: "Consulta general", texto: "Revisión completa y seguimiento de la salud de tu mascota." },
+    { titulo: "Vacunación", texto: "Planes de vacunas y desparasitación según edad y especie." },
+    { titulo: "Cirugía", texto: "Procedimientos programados y de urgencia con control postoperatorio." },
+    { titulo: "Laboratorio", texto: "Exámenes de sangre y diagnóstico para resultados rápidos." },
+    { titulo: "Peluquería", texto: "Baño, corte y cuidado de la piel y el pelaje." },
+    { titulo: "Urgencias", texto: "Atención inmediata cuando más lo necesitas." },
+  ],
+  motivos: [
+    { titulo: "Equipo con experiencia", texto: "Veterinarios que tratan a cada mascota como si fuera propia." },
+    { titulo: "Citas sin esperas", texto: "Agenda en línea y llega a la hora que elegiste." },
+    { titulo: "Todo en un solo lugar", texto: "Consulta, laboratorio, cirugía y peluquería bajo el mismo techo." },
+  ],
+};

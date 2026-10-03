@@ -47,6 +47,11 @@ export default function Navbar() {
                 <Link to={e.to} onClick={cerrar}>{e.label}</Link>
               </li>
             ))}
+            {user?.rol === "admin" && (
+              <li>
+                <Link to="/panel/usuarios" onClick={cerrar}>Usuarios</Link>
+              </li>
+            )}
           </ul>
 
           <div className="nav-actions">

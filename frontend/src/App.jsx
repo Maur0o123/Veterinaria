@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "./AuthProvider";
 import Layout from "./components/Layout";
 import RutaProtegida from "./components/RutaProtegida";
 import Citas from "./pages/Citas";
 import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
+import Usuarios from "./pages/panel/Usuarios";
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
             <Route path="/registro" element={<Registro />} />
             <Route element={<RutaProtegida />}>
               <Route path="/citas" element={<Citas />} />
+            </Route>
+            <Route element={<RutaProtegida roles={["admin"]} />}>
+              <Route path="/panel/usuarios" element={<Usuarios />} />
             </Route>
           </Route>
         </Routes>

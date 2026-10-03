@@ -1,6 +1,7 @@
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework import serializers
+
 from .models import Usuario
 
 
@@ -42,4 +43,36 @@ class RegistroSerializer(serializers.ModelSerializer):
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ["id", "email", "first_name", "last_name", "telefono"]
+        fields = ["id", "email", "first_name", "last_name", "telefono", "rol"]
+        read_only_fields = fields
+
+
+
+class UsuarioAdminSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = [
+            "id", "email", "first_name", "last_name", "telefono",
+            "rol", "is_active", "date_joined", "last_login",
+        ]
+        read_only_fields = ["id", "email", "date_joined", "last_login"]
+
+    def validate(self, attrs):
+        request = self.context["request"]
+        if self.instance is not None and self.instance.pk == request.user.pk:
+            if attrs.get("rol", self.instance.rol) != Usuario.Rol.ADMIN:
+                raise serializers.ValidationError(
+                    {"rol": "No puedes quitarte tu propio rol de administrador."}
+                )
+            if attrs.get("is_active", self.instance.is_active) is False:
+                raise serializers.ValidationError(
+                    {"is_active": "No puedes desactivar tu propia cuenta."}
+                )
+        return attrs
+
+
+class UsuarioCrearAdminSerializer(RegistroSerializer):
+    """Igual que el registro, pero el admin puede elegir el rol."""
+
+    class Meta(RegistroSerializer.Meta):
+        fields = RegistroSerializer.Meta.fields + ["rol"]

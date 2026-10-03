@@ -27,4 +27,24 @@ export const clinica = {
     { titulo: "Citas sin esperas", texto: "Agenda en línea y llega a la hora que elegiste." },
     { titulo: "Todo en un solo lugar", texto: "Consulta, laboratorio, cirugía y peluquería bajo el mismo techo." },
   ],
+    especies: [
+    { emoji: "🐶", nombre: "Perros" },
+    { emoji: "🐱", nombre: "Gatos" },
+    { emoji: "🐰", nombre: "Conejos" },
+    { emoji: "🐦", nombre: "Aves" },
+    { emoji: "🐹", nombre: "Hámsters" },
+    { emoji: "🦎", nombre: "Reptiles" },
+  ],
+  imagenes: {
+    hero: { src: "/img/hero.jpg", alt: "Veterinario revisando a un perro" },
+    nosotros: { src: "/img/nosotros.jpg", alt: "Veterinaria examinando a un gato" },
+    galeria: [
+      { src: "/img/perro.jpg", alt: "Perro feliz" },
+      { src: "/img/gato.jpg", alt: "Gato descansando" },
+      { src: "/img/conejo.jpg", alt: "Conejo" },
+      { src: "/img/cachorro.jpg", alt: "Cachorro jugando" },
+      { src: "/img/gatito.jpg", alt: "Gatito" },
+      { src: "/img/ave.jpg", alt: "Ave" },
+    ],
+  },
 };

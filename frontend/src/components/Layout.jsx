@@ -6,7 +6,6 @@ import Navbar from "./Navbar";
 export default function Layout() {
   const { pathname, hash } = useLocation();
 
-  // Scroll suave a la sección (#servicios...) o al inicio al cambiar de página
   useEffect(() => {
     if (hash) {
       document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" });

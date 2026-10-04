@@ -130,7 +130,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Mensajes de validación (contraseñas, etc.) en español
 LANGUAGE_CODE = "es"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = os.environ.get("DJANGO_TIME_ZONE", "UTC")
+
+CITA_DURACION_MINUTOS = 30
+CITA_ANTICIPACION_HORAS = 2
+CITA_CANCELACION_HORAS = 24
+CITA_DIAS_MAXIMOS = 60
+CITA_MAX_ACTIVAS = 3
+MASCOTAS_MAXIMAS = 10
 
 USE_I18N = True
 
@@ -202,5 +209,6 @@ REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
         "login": "5/min",
         "registro": "5/hour",
+        "citas_crear": "10/hour",
     },
 }

@@ -5,8 +5,9 @@ import RutaProtegida from "./components/RutaProtegida";
 import Citas from "./pages/Citas";
 import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
-import Registro from "./pages/Registro";
+import CalendarioAdmin from "./pages/panel/CalendarioAdmin";
 import Usuarios from "./pages/panel/Usuarios";
+import Registro from "./pages/Registro";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             </Route>
             <Route element={<RutaProtegida roles={["admin"]} />}>
               <Route path="/panel/usuarios" element={<Usuarios />} />
+              <Route path="/panel/calendario" element={<CalendarioAdmin />} />
             </Route>
           </Route>
         </Routes>

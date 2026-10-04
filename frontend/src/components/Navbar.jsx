@@ -48,9 +48,10 @@ export default function Navbar() {
               </li>
             ))}
             {user?.rol === "admin" && (
-              <li>
-                <Link to="/panel/usuarios" onClick={cerrar}>Usuarios</Link>
-              </li>
+              <>
+                <li><Link to="/panel/calendario" onClick={cerrar}>Calendario</Link></li>
+                <li><Link to="/panel/usuarios" onClick={cerrar}>Usuarios</Link></li>
+              </>
             )}
           </ul>
 
